@@ -9,6 +9,7 @@
   <div>
     <h3><a href="/robots/<%= robot.id %>"> <%= robot.name %></a></h3>
     <p><%= robot.city  %></p>
+    <p><%= robot.state %></p>
     <p><%= robot.department %></p>
     <a class="btn btn-success btn-xs" href="/robots/<%= robot.id %>/edit">Edit</a>
     <form action="/robots/<%= robot.id %>" method="POST">

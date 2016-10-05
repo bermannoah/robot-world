@@ -2,15 +2,16 @@ require 'sqlite3'
 
 class Robot
   
+  attr_accessor :robot_params
   attr_reader :name, :city, :state, :department, :id
   
   def initialize(robot_params)
+    @database = SQLite3::Database.new('db/robot_world_development.db')
+    @database.results_as_hash = true
     @name =       robot_params["name"]
     @city =       robot_params["city"]
     @state =      robot_params["state"]
     @department = robot_params["department"]
-    @database = SQLite3::Database.new('db/robot_world_development.db')
-    @database.results_as_hash = true
     @id = robot_params["id"] if robot_params["id"]
   end
   
@@ -33,22 +34,23 @@ class Robot
   end
   
   def self.find(id)
-    robot = database.execute("SELECT * FROM robots WHERE id = ?", id).first
+    robot = database.execute("SELECT * FROM robots WHERE id = ?", id).first    
     Robot.new(robot)
   end
   
   def self.update(id, robot_params)
-    database.execute("UPDATE robots 
+    database.execute("UPDATE robots
                       SET name = ?,
-                          city = ?
-                          state = ?
-                          department = ?;",
+                          city = ?,
+                          state = ?,
+                          department = ?
+                          WHERE id = ?;",
                           robot_params[:name],
                           robot_params[:city],
                           robot_params[:state],
                           robot_params[:department],
-                          id)
-                                                  
+                          id
+                          )
     Robot.find(id)
   end
   

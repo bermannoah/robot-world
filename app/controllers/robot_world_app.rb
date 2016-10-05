@@ -24,8 +24,7 @@ class RobotWorldApp < Sinatra::Base
   end
   
   post '/robots' do
-    robot = Robot.new(params[:name])
-    binding.pry
+    robot = Robot.new(params[:robot])
     robot.save
     redirect '/robots'
   end
@@ -36,7 +35,7 @@ class RobotWorldApp < Sinatra::Base
   end
     
   put '/robots/:id' do |id|
-    Robot.update(id.to_i, params[:name])
+    Robot.update(id.to_i, params[:robot])
     redirect "robots/#{id}"
   end
   
