@@ -5,3 +5,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+
+.content-center {
+  text-align: center;
+  margin-top: 4.5em;
+}
