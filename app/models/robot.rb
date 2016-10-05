@@ -48,7 +48,7 @@ class Robot
                           robot_params[:state],
                           robot_params[:department],
                           id)
-                                        
+                                                  
     Robot.find(id)
   end
   

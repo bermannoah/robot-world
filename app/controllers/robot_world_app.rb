@@ -25,6 +25,7 @@ class RobotWorldApp < Sinatra::Base
   
   post '/robots' do
     robot = Robot.new(params[:name])
+    binding.pry
     robot.save
     redirect '/robots'
   end
