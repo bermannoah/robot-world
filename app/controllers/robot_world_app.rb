@@ -44,5 +44,9 @@ class RobotWorldApp < Sinatra::Base
     redirect '/robots'
   end
   
+  not_found do
+    erb :error
+  end
+  
 end
 

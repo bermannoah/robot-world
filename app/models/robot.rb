@@ -16,7 +16,7 @@ class Robot
   
   def save
     @database.execute("INSERT INTO robots (name, city, state, department) 
-                      VALUES (?, ?, ?, ?);", @name, @city, @state, @department)
+                       VALUES (?, ?, ?, ?);", @name, @city, @state, @department)
   end
   
   def self.database
@@ -38,15 +38,16 @@ class Robot
   end
   
   def self.update(id, robot_params)
-    database.execute("UPDATE robots SET name = ?,
-                                        city = ?
-                                        state = ?
-                                        department = ?;",
-                                        robot_params[:name],
-                                        robot_params[:city],
-                                        robot_params[:state],
-                                        robot_params[:department],
-                                        id)
+    database.execute("UPDATE robots 
+                      SET name = ?,
+                          city = ?
+                          state = ?
+                          department = ?;",
+                          robot_params[:name],
+                          robot_params[:city],
+                          robot_params[:state],
+                          robot_params[:department],
+                          id)
                                         
     Robot.find(id)
   end
