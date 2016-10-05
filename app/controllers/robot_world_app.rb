@@ -19,7 +19,7 @@ class RobotWorldApp < Sinatra::Base
   end
   
   get '/robots/:id' do
-    @task = Task.find(params[:id])
+    @robot = Robot.find(params[:id])
     erb :show
   end
   

@@ -1,13 +1,15 @@
 <h1>My Robots</h1>
 
 <div>
+  
   <% @robots.each do |robot| %>
   
   <div>
-    <h3><a href="/robots/<%= robot.id %>"><%= robot.name %></a></h3>
-    <p><%= robot.city robot.state %></p>
+    <h3><a href="/robots/<%= robot.id %>"> <%= robot.name %></a></h3>
+    <p><%= robot.city  %></p>
     <p><%= robot.department %></p>
   </div>
   
   <% end %>
+  
 </div>

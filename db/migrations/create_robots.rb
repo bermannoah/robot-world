@@ -1,4 +1,4 @@
-# db/migrations/001_create_tasks.rb
+# db/migrations/001_create_robots.rb
 
 require 'sqlite3'
 

@@ -1,0 +1,21 @@
+<div class="container">
+    
+  <div>  
+    <h1><%= @robot.name %></h1>
+  </div>
+  
+  <div>
+    <p ><%= @robot.city %></p>
+  </div>
+  
+  <div>
+    <p ><%= @robot.state %></p>
+  </div>
+  
+  <div>
+    <p ><%= @robot.department %></p>
+  </div>
+  
+  <a class="col-md-1 btn btn-success btn-xs" href="/robots/<%= @robot.id %>/edit">Edit</a>
+  
+</div>
